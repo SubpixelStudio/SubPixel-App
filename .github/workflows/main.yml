@@ -24,14 +24,11 @@ jobs:
           npm install --global eas-cli
           npm install
 
-      - name: 🔐 Login na EAS
-        run: eas login --token ${{ secrets.EAS_TOKEN }}
-
       - name: 📱 Build Android
-        run: eas build --platform android --non-interactive
+        run: eas build --platform android --non-interactive --token=${{ secrets.EAS_TOKEN }}
 
       - name: 🍏 Build iOS
-        run: eas build --platform ios --non-interactive
+        run: eas build --platform ios --non-interactive --token=${{ secrets.EAS_TOKEN }}
 
       - name: 🌐 Build Web
         run: |
